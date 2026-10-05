@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>兔耳头像 · 奶油金</title>
+  <desc>奶油金配色的眯眼兔耳头像，一只长耳竖起，另一只向右弯垂。透明背景。</desc>
+  <g stroke="#65483D" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Long, slightly tilted rabbit ear. -->
+    <path d="M159 191C143 157 116 91 119 48C120 25 130 14 144 20C173 32 194 112 201 166Z" fill="#EDC98C"/>
+    <path d="M156 155C146 125 132 78 136 47C148 60 162 108 169 143" fill="#EEAE9F" stroke="none"/>
+    <!-- Bent rabbit ear, with a soft fold at the tip. -->
+    <path d="M281 161C290 114 300 55 326 29C347 8 369 22 382 51C397 84 412 130 396 151C389 162 377 157 368 145L348 111C343 133 338 152 330 176Z" fill="#EDC98C"/>
+    <path d="M302 143C308 106 318 64 335 46C346 34 355 46 359 60C341 65 329 103 322 143Z" fill="#EEAE9F" stroke="none"/>
+    <path d="M348 111C353 92 360 76 368 70" stroke-width="7"/>
+    <!-- Hair silhouette. -->
+    <path d="M127 212C130 157 174 125 230 128C294 115 351 147 373 205C391 252 378 303 391 360C398 390 412 411 433 421C416 430 400 426 386 414C404 455 372 482 323 483C302 484 282 479 267 470C290 454 313 427 327 400C305 419 274 433 248 439C235 469 196 486 154 479C105 473 87 446 94 405C102 359 114 336 107 290C101 253 110 228 127 212Z" fill="#EDC98C"/>
+    <!-- Face. -->
+    <path d="M145 253C161 219 192 201 245 203C301 203 351 219 363 263C377 314 352 350 313 376C278 399 227 413 186 397C164 388 153 374 148 352C144 330 132 317 132 296C132 279 137 264 145 253Z" fill="#FFF0DF"/>
+    <!-- Sweeping fringe and short side lock. -->
+    <path d="M139 231C126 258 127 281 144 290C155 296 170 291 180 286C172 268 171 249 175 230C174 258 184 277 203 279C228 281 263 266 281 247C298 229 301 207 296 183C306 214 321 230 343 236C354 239 362 247 367 260C365 204 339 159 300 143C269 126 224 127 191 139C161 150 142 172 132 198" fill="#EDC98C"/>
+    <path d="M329 166C353 190 365 223 368 255" stroke-width="7"/>
+    <!-- Playful wink, sleepy eye, and a tiny rabbit mouth. -->
+    <path d="M183 315L203 324L189 338" stroke-width="9"/>
+    <path d="M285 316L307 310" stroke-width="9"/>
+    <path d="M244 344L248 348L252 343" stroke-width="5"/>
+    <path d="M248 348C246 356 239 357 236 352M248 348C251 355 258 355 261 350" stroke-width="5"/>
+    <path d="M166 343L179 346M312 335L325 331" stroke="#E8A391" stroke-width="9"/>
+    <!-- A curled hair tip frames the chin. -->
+    <path d="M172 400C203 410 241 419 250 440C258 461 218 481 177 481" stroke-width="8"/>
+  </g>
+</svg>
