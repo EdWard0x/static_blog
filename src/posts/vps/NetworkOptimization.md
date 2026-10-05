@@ -1,10 +1,10 @@
 ---
 title: 线路vps网络优化
-date: 2026-10-03 # 发布日期
-description: "刚装好的vps小鸡如果网络测速效果不佳，可以尝试优化"
-tags: [Vps] # 标签列表，自动生成分类索引
-categories: [vps]
-draft: false # 是否为草稿（设为 true 则只在本地显示，不会发布到线上）
+date: 2026-10-03        # 发布日期
+description: '刚装好的vps小鸡如果网络测速效果不佳，可以尝试优化'
+tags: [network_optimization]     # 标签列表，自动生成分类索引
+categories: [Vps]
+draft: false                 # 是否为草稿（设为 true 则只在本地显示，不会发布到线上）
 ---
 
 放在/etc/sysctl.d/99-z-net.conf
