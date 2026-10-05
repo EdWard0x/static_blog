@@ -20,12 +20,21 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# jetbrains setting folder
+.idea/
+
+.turbo
+
+old_project
+
 .vercel
+.env*.local
+hyacine.code-workspace
+generated/
+.hyacine
+.claude
 
-package-lock.json
-bun.lockb
-yarn.lock
-
-# ide
-.idea
-*.iml
+test-results/
+playwright-report/
+.playwright-mcp
+.lycheecache

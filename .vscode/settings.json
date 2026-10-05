@@ -1,22 +1,7 @@
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "biomejs.biome",
-  "[javascript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "quickfix.biome": "always",
-    "source.organizeImports.biome": "always"
-  },
-  "frontMatter.dashboard.openOnStart": false
+  "i18n-ally.localesPaths": [
+    "src/i18n",
+    "old_project/hexo-theme-shokaX/languages",
+    "src/i18n/locales"
+  ]
 }

@@ -1,42 +1,37 @@
 import rss from "@astrojs/rss";
-import { getSortedPosts } from "@utils/content-utils";
-import { url } from "@utils/url-utils";
 import type { APIContext } from "astro";
-import MarkdownIt from "markdown-it";
-import sanitizeHtml from "sanitize-html";
-import { siteConfig } from "@/config";
+import { getCollection } from "astro:content";
+import themeConfig from "@/theme.config";
+import { toPostHref } from "@/toolkit/posts/url";
 
-const parser = new MarkdownIt();
-
-function stripInvalidXmlChars(str: string): string {
-	return str.replace(
-		// biome-ignore lint/suspicious/noControlCharactersInRegex: https://www.w3.org/TR/xml/#charsets
-		/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F\uFDD0-\uFDEF\uFFFE\uFFFF]/g,
-		"",
-	);
-}
-
+// 生成站点 RSS 订阅源（/rss.xml）
 export async function GET(context: APIContext) {
-	const blog = await getSortedPosts();
+  const posts = await getCollection("posts");
+  const published = posts
+    .filter((post) => !post.data.draft)
+    // 加密文章构建后内容为密文，订阅端无法解密阅读；且无 description 时
+    // 会回退到 post.body 明文摘要（把正文前 150 字符泄露进订阅源）。
+    // 因此整篇从订阅源排除。
+    .filter((post) => !post.data.encrypted)
+    .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-	return rss({
-		title: siteConfig.title,
-		description: siteConfig.subtitle || "No description",
-		site: context.site ?? "https://fuwari.vercel.app",
-		items: blog.map((post) => {
-			const content =
-				typeof post.body === "string" ? post.body : String(post.body || "");
-			const cleanedContent = stripInvalidXmlChars(content);
-			return {
-				title: post.data.title,
-				pubDate: post.data.published,
-				description: post.data.description || "",
-				link: url(`/posts/${post.slug}/`),
-				content: sanitizeHtml(parser.render(cleanedContent), {
-					allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-				}),
-			};
-		}),
-		customData: `<language>${siteConfig.lang}</language>`,
-	});
+  const siteName = themeConfig.siteName;
+  const description =
+    themeConfig.sidebar?.description || themeConfig.brand?.subtitle || `${siteName} 的文章订阅`;
+
+  return rss({
+    title: siteName,
+    description,
+    // 项目路由要求保留尾斜杠
+    trailingSlash: true,
+    site: context.site ?? "https://preview.astro.kaitaku.xyz",
+    items: published.map((post) => ({
+      title: post.data.title,
+      description:
+        post.data.description || (post.body ?? "").slice(0, 150).replace(/\s+/g, " ").trim(),
+      pubDate: post.data.date,
+      link: toPostHref(post.id),
+      categories: post.data.categories ?? undefined,
+    })),
+  });
 }
