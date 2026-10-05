@@ -2,7 +2,7 @@
 
 ## Stack & runtime
 
-- Astro 7 site; Node.js (≥ 22.12) with pnpm is the expected runtime (`packageManager: pnpm@…`). Prefer the `pnpm run …` scripts in `package.json`.
+- Astro 7 site; Node.js (≥ 22.13, build version in `.nvmrc`) with pnpm is the expected runtime (`packageManager: pnpm@…`). Prefer the `pnpm run …` scripts in `package.json`.
 - SolidJS is used for interactive UI (JSX + `createSignal`/`createEffect`) — see `src/components/navbar/NavBar.tsx`.
 
 ## Where things live

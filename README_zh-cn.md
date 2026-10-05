@@ -36,7 +36,7 @@
 
 ## 📦 安装
 
-本项目建议使用 [Node.js](https://nodejs.org/)（v22.12 及以上）与 [pnpm](https://pnpm.io/) 运行。
+本项目使用 [Node.js](https://nodejs.org/)（v22.13 及以上）与 [pnpm](https://pnpm.io/) 运行，构建版本由根目录 `.nvmrc` 固定为 22.16.0。
 
 你可以直接将本仓库 Clone 到本地（并为我们点一个 Star 😜），来开始使用。也可使用[由 HyC 提供的交互式安装支持](https://docs.astro.kaitaku.xyz/start/guides/)
 
@@ -57,6 +57,20 @@ pnpm run build
 ```
 
 现在，你的站点已经可用了。如果你想自定义你的站点，查看完整文档来进行下一步：[ShokaX Astro 文档](https://docs.astro.kaitaku.xyz/start/guides/)
+
+## Cloudflare Pages 部署
+
+在 Cloudflare 控制台创建 Pages 项目，授权访问你的 GitHub 仓库，并选择生产分支。构建配置如下：
+
+- 构建命令：`pnpm run build`（包括 Astro 构建与 Pagefind 搜索索引）。
+- 构建输出目录：`dist`。
+- 根目录：仓库根目录。
+- Node.js：读取仓库 `.nvmrc`；如果控制台配置了 `NODE_VERSION`，请将生产和预览环境的值都改为 `22.16.0`。
+- pnpm：使用 `package.json` 中的 `pnpm@11.22.0`；如果控制台配置了 `PNPM_VERSION`，请保持一致。
+
+推送到关联的 GitHub 分支后，Cloudflare 的 Git 集成会自动拉取代码、安装依赖、构建并发布网站，不依赖 `.github/workflows/` 中的 GitHub Actions。保留的 `release.yml` 仅用于发布 GitHub 版本与更新日志。
+
+上方 Cloudflare 一键部署按钮与仓库 `wrangler.toml` 用于 **Workers Static Assets**，与 Pages 是两种部署方式。使用 Pages 时通过 Pages 的 Git 集成和上述构建配置发布；不要填写 `wrangler deploy`。详情见 [Cloudflare Git 集成](https://developers.cloudflare.com/pages/configuration/git-integration/)和[构建环境版本配置](https://developers.cloudflare.com/pages/configuration/build-image/)。
 
 ## 📂 项目结构
 

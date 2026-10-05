@@ -36,7 +36,7 @@ Two-column layout:
 
 ## 📦 Installation
 
-We recommend using [Node.js](https://nodejs.org/) (v22.12 or higher) with [pnpm](https://pnpm.io/) to run this project.
+Use [Node.js](https://nodejs.org/) (v22.13 or higher) with [pnpm](https://pnpm.io/) to run this project. The root `.nvmrc` pins the build version to 22.16.0.
 
 You can clone this repository directly to get started (and maybe drop us a Star 😜), or use the [interactive installation flow provided by HyC](https://docs.astro.kaitaku.xyz/start/guides/).
 
